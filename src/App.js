@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+// import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
+import "./App.css";
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+
+  // Load tasks from localStorage on initialization
+  useEffect(() => {
+    const saveTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    setTasks(saveTasks);
+  }, []);
+
+  // Save tasks to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  // Add a new task
+  const addTasks = (task) => {
+    setTasks([...tasks, task]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1>Contact Management App</h1>
+      {/* <TaskForm onAddContact={addTasks} /> */}
+      <TaskList tasks={tasks} />
     </div>
   );
 }
