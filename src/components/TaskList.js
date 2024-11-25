@@ -14,10 +14,16 @@ function TaskList({ tasks }) {
               <strong>name:</strong> {task.name}
             </p>
             <p>
-              <strong>phone:</strong> {task.phone}
+              <strong>description:</strong> {task.description}
             </p>
             <p>
-              <strong>Category:</strong> {task.category}
+              <strong> assignedTo:</strong> {task.assignedTo}
+            </p>
+            <p>
+              <strong> status:</strong> {task.status}
+            </p>
+            <p>
+              <strong> due:</strong> {task.due}
             </p>
           </div>
         ))
