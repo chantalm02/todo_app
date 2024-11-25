@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="app-container">
       <h1>Task To Do App</h1>
-      <TaskForm onAddTask={addTasks} />
+      <TaskForm onAddForm={addTasks} />
       <TaskList tasks={tasks} />
     </div>
   );

@@ -11,19 +11,19 @@ function TaskList({ tasks }) {
           <div key={task.id} className="task-card">
             <h4>{task.name}</h4>
             <p>
-              <strong>name:</strong> {task.name}
+              <strong>Description: </strong> {task.description}
             </p>
             <p>
-              <strong>description:</strong> {task.description}
+              <strong>Assigned To: </strong> {task.assigned}
             </p>
             <p>
-              <strong> assignedTo:</strong> {task.assignedTo}
+              <strong>Status: </strong> {task.status}
             </p>
             <p>
-              <strong> status:</strong> {task.status}
+              <strong>Due: </strong> {task.due}
             </p>
             <p>
-              <strong> due:</strong> {task.due}
+              <strong>ID: </strong> {task.id}
             </p>
           </div>
         ))

@@ -38,10 +38,14 @@ function TaskForm({ onAddForm }) {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent form from refreshing the page
 
+    // Add a unique ID to the contact
+    const newForm = { ...formData, id: Date.now() };
+
     // Validate the form
     if (validateForm()) {
       // If validation passes, call the onAddForm function
-      onAddForm(formData);
+      // Pass the contact to the parent component
+      onAddForm(newForm);;
 
       // Clear the form fields
       setFormData({
