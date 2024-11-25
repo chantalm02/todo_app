@@ -22,13 +22,16 @@ function App() {
     setTasks([...tasks, task]);
   };
 
+
+
   return (
     <div className="app-container">
-      <h1>Task To Do App</h1>
+      <div className="task-container">
+      <h1 className="todo">Task To Do App</h1>
       <TaskForm onAddForm={addTasks} />
       <TaskList tasks={tasks} />
     </div>
+    </div>
   );
 }
-
 export default App;
