@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import TaskForm from "./components/TaskForm";
+import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import "./App.css";
 
@@ -24,8 +24,8 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Contact Management App</h1>
-      {/* <TaskForm onAddContact={addTasks} /> */}
+      <h1>Task To Do App</h1>
+      <TaskForm onAddTask={addTasks} />
       <TaskList tasks={tasks} />
     </div>
   );

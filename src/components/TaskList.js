@@ -3,7 +3,7 @@ import React from "react";
 function TaskList({ tasks }) {
   return (
     <div className="task-list">
-      <h3>Contact List</h3>
+      <h3>Task List</h3>
       {tasks.length === 0 ? (
         <p>No tasks added yet.</p>
       ) : (
