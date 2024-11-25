@@ -19,6 +19,7 @@ function TaskForm({ onAddForm }) {
  
   
     return (
+      
       <form>
         <h3>Add Task</h3>
         <div>
@@ -46,7 +47,7 @@ function TaskForm({ onAddForm }) {
             value={formData.description}
             onChange={handleInputChange}
             rows="4" 
-            cols="50"
+            cols="40"
           />
         </div>
         <div>
@@ -71,8 +72,10 @@ function TaskForm({ onAddForm }) {
           </select>
         </div>
         {error && <p className="error-message">{error}</p>}
-        <button type="submit">Add Form</button>
+        <div className="button-container">
+        <button type="submit">Add Form</button></div>
       </form>
+    
     );
   }
   
