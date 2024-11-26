@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
-
 import "./App.css";
 
 function App() {
@@ -27,14 +26,10 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="gifbg">
       <div className="task-container">
-      <div className="background">
       <h1 className="todo">Task To Do App</h1>
       <TaskForm onAddForm={addTasks} />
       <TaskList tasks={tasks} />
-    </div>
-    </div>
     </div>
     </div>
   );
