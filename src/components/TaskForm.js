@@ -63,37 +63,34 @@ function TaskForm({ onAddForm }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h3>Add Task</h3>
+      <h3 style={{textAlign:'center', fontSize: 30}}>Add Task</h3>
       <div>
         <label>Task Name: </label>
         <input
           type="text"
           name="name"
+          placeholder="Task Name"
           value={formData.name}
           onChange={handleInputChange}
+          className="forminput"
+          required          
         />
       </div>
+
       <div>
-        <label>Assigned To: </label>
-        <input
-          type="text"
-          name="assigned"
-          value={formData.assigned}
-          onChange={handleInputChange}
-        />
-      </div>
-      <div>
-        <label>Description: </label>
-     
-      
+        <label>Description: </label>   
         <textarea
           name="description"
+          placeholder="Description"
           value={formData.description}
           onChange={handleInputChange}
           rows="4"
           cols="50"
+          className="forminput" 
+          required
         />
       </div>
+
       <div>
         <label>Due Date: </label>
         <input
@@ -101,14 +98,30 @@ function TaskForm({ onAddForm }) {
           name="due"
           value={formData.due}
           onChange={handleInputChange}
+          className="forminput" 
+          required
         />
       </div>
+
+      <div>
+        <label>Assigned To: </label>
+        <input
+          type="text"
+          name="assigned"
+          placeholder="Assigned To"
+          value={formData.assigned}
+          onChange={handleInputChange}
+          className="forminput" 
+          required
+        />
+      </div>
+
       <div>
         <label>Status: </label>
         <select
           name="status"
           value={formData.status}
-          onChange={handleInputChange}
+          onChange={handleInputChange}          
         >
           <option value="">Select Status</option>
           <option value="in-progress">In Progress</option>
@@ -116,8 +129,8 @@ function TaskForm({ onAddForm }) {
           <option value="review">Review</option>
         </select>
       </div>
-      {error && <p className="error-message" style={{ color: "red" }}>{error}</p>}
-      <button type="submit">Add Task</button>
+      {error && <p className="error-message" style={{ color: "red", textAlign: 'center' }}>{error}</p>}
+      <button className='addtask' type="submit">Add Task</button>
     </form>
   );
 }
