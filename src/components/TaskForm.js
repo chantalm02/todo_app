@@ -19,7 +19,7 @@ function TaskForm({ onAddForm }) {
  
   
     return (
-      
+      <div className='form-section'>
       <form>
         <h3>Add Task</h3>
         <div>
@@ -30,7 +30,7 @@ function TaskForm({ onAddForm }) {
             value={formData.name}
             onChange={handleInputChange}
           />
-        </div>
+                </div>
         <div>
           <label>Assigned To: </label>
           <input
@@ -75,7 +75,7 @@ function TaskForm({ onAddForm }) {
         <div className="button-container">
         <button type="submit">Add Form</button></div>
       </form>
-    
+      </div>
     );
   }
   

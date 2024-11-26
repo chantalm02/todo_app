@@ -47,9 +47,12 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-}
+     
+   }
+
 .app-container {
   background: linear-gradient(to right, #6a11cb, #2575fc);
+  background-image: url('./images/image1.jpg');
   min-height: 100vh;
   display: flex;
     justify-content: center;
@@ -59,11 +62,12 @@ body {
 }
 
 .task-container {
-  background:cornsilk;
+    background:cornsilk;
   color: #000;
   margin-bottom: 50px;
-  border-radius: 10px;
+  border-radius: 90px;
     padding: 20px;
+    
   width: 100%;
   font-family:cursive;
   max-width: 600px;
@@ -94,7 +98,7 @@ button:hover {
   display: flex;
   justify-content: space-between;
   margin:auto;
-  gap: 10px; 
+  gap: 40px; 
 }
 
 .col-md-6 {
@@ -131,11 +135,7 @@ textarea {
   }
 
 
- /* .background {
-    background-image: url(components/pic.png);
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    height: 100vh; 
-    width: 100%; 
-  } */
+.form-section {
+  justify-items: center;
+}
+
