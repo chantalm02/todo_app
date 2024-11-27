@@ -69,7 +69,7 @@ function App() {
         <TaskForm onAddForm={addTasks} />
         <TaskList
           tasks={tasks}
-          onEditTasks={editTask}
+          onEditTask={editTask}
           onDeleteTask={deleteTask}
         />
         
