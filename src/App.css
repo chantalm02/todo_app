@@ -60,10 +60,10 @@ body {
 
 .task-container {
   background:cornsilk;
-  color: #000;
+  color: #013a63;
   margin-bottom: 50px;
   border-radius: 10px;
-    padding: 20px;
+  padding: 20px;
   width: 100%;
   font-family:cursive;
   max-width: 600px;
@@ -76,19 +76,62 @@ body {
 }
 
 
-button {
-  background-color: #2575fc;
+.addtask {
+  background-color: #2B68EF;
   border: none;
   color: #fff;
   font-weight: bold;
-  border-radius: 15px;
+  border-radius: 5px;
   transition: 0.3s;
+  padding: 10px;
+  margin: 30px auto 50px auto;
+  display: block;
+  width: 30%;
+  cursor: pointer;
 }
 
-button:hover {
-  background-color: #827b8ad2;
-  
+.addtask:hover {
+  background-color: #ffb703;
+  font-weight: 800;
   }
+
+.edittask {
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    margin: 10px 79px;
+    padding: 10px 20px;
+    background-color: #cfd5d6;
+    color: #013a63;    
+    border: rgb(170, 181, 185); 
+    border-radius: 5px; 
+    cursor: pointer;
+    width: 120px;
+  }
+  
+.edittask:hover {
+    background-color: #0077b6;
+    color: #fff;
+  }
+
+.sorttask {
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+  margin: 20px 30px;
+  padding: 10px 20px;
+  background-color: #caf0f8;
+  color: #013a63;  
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+  width: 140px;
+}
+
+.sorttask:hover {
+  background-color: #2B68EF;
+  color: #fff;
+}
 
 .row {
   display: flex;
@@ -109,7 +152,7 @@ button:hover {
 
 .form-group-row {
   display:flex;
-    flex-wrap:wrap;
+  flex-wrap:wrap;
   gap:20px;
 }
 
@@ -125,12 +168,45 @@ textarea {
   height: 100%; 
 }
 
-.todo {
+/*.todo {
   text-align: center;
   text-decoration:underline brown;
-  }
+  } */
 
+.forminput {
+  display: block;
+  width: 96.5%;
+  height: 20px;
+  padding: 5px 10px;
+  margin: 10px 0;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 2px;  
+}
 
+select {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 5px 5px;
+  margin: 10px 0;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 2px;  
+}
+
+.task-card {
+  background-color: #fff;
+  padding:5px 20px;
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: 2px; 
+  line-height: 15px;
+}
  /* .background {
     background-image: url(components/pic.png);
     background-size: cover; 
