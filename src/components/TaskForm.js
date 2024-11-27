@@ -13,6 +13,17 @@ function TaskForm({ onAddForm }) {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    // Allow only letters for the "name" field
+    if (name === "name" && !/^[a-zA-Z\s]*$/.test(value)) {
+      setError("Task name should contain letters only.");
+      return;
+    }
+
+    // Clear the error if the input is valid
+    setError("");
+
+    // Update the state
     setFormData({ ...formData, [name]: value });
   };
 
