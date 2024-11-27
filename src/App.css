@@ -133,6 +133,33 @@ body {
   color: #fff;
 }
 
+.create-task {
+  display: block;
+  text-align: center;
+  align-items: center;
+  margin: 20px 30px;
+  padding: 10px 20px;
+  background-color: #caf0f8;
+  color: #013a63;  
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+  width: 160px;
+}
+
+.create-task:hover {
+  background-color: #2B68EF;
+  color: #fff;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: center;  /* Horizontally center the button */
+  align-items: center;      /* Vertically center the button */
+  height: 100vh;            /* Make sure the container takes full viewport height */
+}
+
 .row {
   display: flex;
   justify-content: space-between;

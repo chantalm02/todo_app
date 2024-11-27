@@ -6,12 +6,14 @@ import Footer from './components/Footer';
 import "./App.css";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]); //holds the current displayed tasks
+  const [allTasks, setAllTasks] = useState([]); //holds all of the tasks
 
   // Load tasks from localStorage on initialization
   useEffect(() => {
-    const saveTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    setTasks(saveTasks);
+    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    setTasks(savedTasks);
+    setAllTasks(savedTasks); //saves original tasks for resetting
   }, []);
 
   // Save tasks to localStorage whenever they change
@@ -19,32 +21,56 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  // Add a new task
+  //adds new task
   const addTasks = (task) => {
-    setTasks([...tasks, task]);
+    const newTasks = [...tasks, task];
+    setTasks(newTasks);
+    setAllTasks(newTasks); // Make sures original tasks are updated
+  }
+
+  const sortTasks = (status) => {
+    if(status === "all") {
+      //shows all tasks
+      setTasks(allTasks);
+    } else {
+      //filters tasks
+      const sortedTasks = allTasks.filter((task) => task.status === status);
+      setTasks(sortedTasks);
+    }
   };
 
-  
-  //Michelle: Don't know how to solve the below problem:
-  //7.	Sort Tasks by Status
-  const sortTasks = (status) => {
-    const sortedTasks = tasks.filter((task) => task.status === status);
-    setTasks(sortedTasks);
+  //edit task
+  const editTask = (id, updatedTask) => {
+    const updatedTasks = tasks.map((task) => 
+    task.id === id ? {...task, ...updatedTask } : task
+    );
+    setTasks(updatedTasks);
+    setAllTasks(updatedTasks);// updates original tasks after edit
   };
-  //7.	Sort Tasks by Status
+
+  //deletes task
+  const deleteTask = (id) => {
+    const updatedTasks = tasks.filter((task) => task.id != id);
+    setTasks(updatedTasks);
+    setAllTasks(updatedTasks); //updates original list after deletion
+  }
 
   return (
+    
     <div className="app-container">
-
       <div className="task-container">
         <HeadBanner /> 
-
         <TaskForm onAddForm={addTasks} />
-        <TaskList tasks={tasks} />
-        
+        <TaskList
+          tasks={tasks}
+          onEditTasks={editTask}
+          onDeleteTask={deleteTask}
+        />
+        {/*Sorting Buttons*/}
         <button className="sorttask" onClick={() => sortTasks("in-progress")}>In Progress</button>
         <button className="sorttask" onClick={() => sortTasks("completed")}>Completed</button>
         <button className="sorttask" onClick={() => sortTasks("review")}>Review</button>
+        <button className="sorttask" onClick={() => sortTasks("all")}>All Tasks</button> {/* To show all tasks */}
 
         <Footer />
         </div>

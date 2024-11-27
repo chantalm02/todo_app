@@ -1,23 +1,32 @@
 import React from "react";
 
-function TaskList({ tasks, setTasks }) {
-  
-  //Michelle: Don't know how to solve the below problem:
-  //6.	Edit and Remove Tasks
-  const editTask = (id) => {
-    const updatedName = prompt("Update task name:");
-    if (updatedName) {
-      setTasks(id, { name: updatedName });
+function TaskList({ tasks, onEditTask, onDeleteTask }) {
+
+  const handleEdit = (task) => {
+    const updatedName = prompt("Update task name:", task.name);
+    const updatedDescription = prompt("Update description:", task.description)
+    const updatedAssigned = prompt("Update assigned person:", task.assigned);
+    const updatedStatus = prompt("Update task status:", task.status);
+    const updatedDue = prompt("Update due date:", task.due);
+
+    if (updatedName && updatedDescription && updatedAssigned && updatedStatus && updatedDue) {
+      //creates updated task object
+      const updatedTask = {
+        name: updatedName,
+        description: updatedDescription,
+        assigned: updatedAssigned,
+        status: updatedStatus,
+        due: updatedDue,
+      };
+      onEditTask(task.id, updatedTask);
     }
   };
 
-  const deleteTask = (id) => {
-    console.log("Deleting task with ID:", id);
-    const updatedTasks = tasks.filter((task) => task.id !== id);
-    setTasks(updatedTasks);
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this task?")) {
+      onDeleteTask(id);
+    }
   };
-  //6.	Edit and Remove Tasks
- 
 
   return (
     <div className="task-list">
@@ -44,8 +53,8 @@ function TaskList({ tasks, setTasks }) {
               <strong>ID: </strong> {task.id}
             </p>
 
-            <button className="edittask" onClick={() => editTask(task.id)}>Edit</button>
-            <button className="edittask" onClick={() => deleteTask(task.id)}>Delete</button>
+            <button className="edittask" onClick={() => onEditTask(task)}>Edit</button>
+            <button className="edittask" onClick={() => onDeleteTask(task.id)}>Delete</button>
 
           </div>
         ))
