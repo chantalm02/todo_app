@@ -60,13 +60,13 @@ function App() {
     <div className="app-container">
       <div className="task-container">
         <HeadBanner /> 
-        
-        <TaskForm onAddForm={addTasks} />
+        <h3 style={{textAlign:'center', fontSize: 30}}>Task List</h3>
         {/*Sorting Buttons*/}
         <button className="sorttask" onClick={() => sortTasks("in-progress")}>In Progress</button>
         <button className="sorttask" onClick={() => sortTasks("completed")}>Completed</button>
         <button className="sorttask" onClick={() => sortTasks("review")}>Review</button>
         <button className="sorttask" onClick={() => sortTasks("all")}>All Tasks</button> {/* To show all tasks */}
+        <TaskForm onAddForm={addTasks} />
         <TaskList
           tasks={tasks}
           onEditTasks={editTask}

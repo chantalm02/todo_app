@@ -30,7 +30,7 @@ function TaskList({ tasks, onEditTask, onDeleteTask }) {
 
   return (
     <div className="task-list">
-      <h3 style={{textAlign:'center', fontSize: 30}}>Task List</h3>
+      
       {tasks.length === 0 ? (
         <p>No tasks added yet.</p>
       ) : (
@@ -53,8 +53,8 @@ function TaskList({ tasks, onEditTask, onDeleteTask }) {
               <strong>ID: </strong> {task.id}
             </p>
 
-            <button className="edittask" onClick={() => onEditTask(task)}>Edit</button>
-            <button className="edittask" onClick={() => onDeleteTask(task.id)}>Delete</button>
+            <button className="edittask" onClick={() => handleEdit(task)}>Edit</button>
+            <button className="edittask" onClick={() => handleDelete(task.id)}>Delete</button>
 
           </div>
         ))
