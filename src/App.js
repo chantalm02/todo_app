@@ -60,18 +60,19 @@ function App() {
     <div className="app-container">
       <div className="task-container">
         <HeadBanner /> 
+        
         <TaskForm onAddForm={addTasks} />
-        <TaskList
-          tasks={tasks}
-          onEditTasks={editTask}
-          onDeleteTask={deleteTask}
-        />
         {/*Sorting Buttons*/}
         <button className="sorttask" onClick={() => sortTasks("in-progress")}>In Progress</button>
         <button className="sorttask" onClick={() => sortTasks("completed")}>Completed</button>
         <button className="sorttask" onClick={() => sortTasks("review")}>Review</button>
         <button className="sorttask" onClick={() => sortTasks("all")}>All Tasks</button> {/* To show all tasks */}
-
+        <TaskList
+          tasks={tasks}
+          onEditTasks={editTask}
+          onDeleteTask={deleteTask}
+        />
+        
         <Footer />
         </div>
     </div>
